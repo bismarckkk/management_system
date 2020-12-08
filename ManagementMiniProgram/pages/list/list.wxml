@@ -1,0 +1,61 @@
+<!--pages/search/search.wxml-->
+<view class="page" data-weui-theme="{{theme}}">
+	<view class="page__bd">
+		<view class="weui-search-bar {{inputShowed ? 'weui-search-bar_focusing' : ''}}" id="searchBar">
+			<form class="weui-search-bar__form">
+				<view class="weui-search-bar__box">
+					<i class="weui-icon-search"></i>
+                    <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputValue}}" focus="{{inputShowed}}" bindinput="bindinput" bindtap="searchtap" bindconfirm="submit" />
+                    <span class="weui-icon-clear" wx:if="{{inputValue.length > 0}}" bindtap="clearInput"></span>
+				</view>
+				<label class="weui-search-bar__label" bindtap="showInput">
+					<i class="weui-icon-search"></i>
+                    <span class="weui-search-bar__text">搜索</span>
+				</label>
+			</form>
+            <view class="weui-search-bar__cancel-btn" bindtap="hideInput">取消</view>
+		</view>
+		<view class="weui-cells searchbar-result" wx:if="{{inputValue.length > 0}}">
+      <view wx:for="{{bindSource}}" wx:for-item="it" wx:if="{{showScroll}}">
+        <view class="weui-cell weui-cell_active weui-cell_access">
+          <view class="weui-cell__bd weui-cell_primary" data-t="{{it}}" bindtap="itemtap">
+            <view>{{it}}</view>
+          </view>
+        </view>
+      </view>
+		</view>
+	</view>
+  <text>\n</text>
+	<view class="page__hd" style="display: flex; ">
+		<view class="weui-form__title" style="width:50%;display=inline-block;"><text decode="{{true}}">&nbsp;&nbsp;&nbsp;物资总览</text></view>
+    <view style="width:49%;display=inline-block;" wx:if="{{admin}}">
+      <button class="weui-btn weui-btn_primary" bindtap="add">新增</button>
+    </view>
+	</view>
+  <text>\n</text>
+  <view class="weui-cells weui-cells_after-title">
+    <view wx:for="{{mlist}}" wx:for-item="it">
+      <navigator url="/pages/listObj/listObj?k=o&f={{it.id}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">{{it.name}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">{{it.use}}/{{it.total}}</view>
+      </navigator>
+    </view>
+  </view>
+</view>
+<view class="fadeIn" wx:if="{{e}}">
+  <view class="weui-mask"></view>
+  <view class="weui-dialog">
+      <view class="weui-dialog__bd"><text>读取列表时出现错误，是否重试</text></view>
+      <view class="weui-dialog__ft">
+          <a class="weui-dialog__btn weui-dialog__btn_default" bindtap="close">关闭</a>
+          <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="retry">重试</a>
+      </view>
+  </view>
+</view>
+<view class="fadeIn {{hideLoading ? 'fadeOut' : ''}}" wx:if="{{loading}}">
+  <view class="weui-mask_transparent"></view>
+  <view class="weui-toast">
+    <i class="weui-loading weui-icon_toast"></i>
+    <view class="weui-toast__content">加载中</view>
+  </view>
+</view>

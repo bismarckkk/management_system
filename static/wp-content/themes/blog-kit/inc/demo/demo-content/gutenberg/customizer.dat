@@ -1,0 +1,3 @@
+a:4:{s:8:"template";s:8:"blog-kit";s:4:"mods";a:4:{i:0;b:0;s:18:"nav_menu_locations";a:2:{s:7:"primary";i:21;s:6:"social";i:22;}s:18:"custom_css_post_id";i:122;s:13:"theme_options";a:4:{s:13:"global_layout";s:13:"right-sidebar";s:17:"show_social_icons";b:1;s:13:"site_identity";s:10:"title-only";s:14:"copyright_text";s:38:"Copyright © 2018. All rights reserved";}}s:7:"options";a:2:{s:9:"site_icon";s:3:"140";s:23:"nav_menus_created_posts";a:0:{}}s:6:"wp_css";s:62:".cta-section p.wp-block-cover-text em {
+    font-size: 25px;
+}";}

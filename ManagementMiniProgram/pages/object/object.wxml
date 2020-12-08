@@ -1,0 +1,44 @@
+<!--pages/object/object.wxml-->
+<view class="fadeIn {{hideLoading ? 'fadeOut' : ''}}" wx:if="{{loading}}">
+  <view class="weui-mask_transparent"></view>
+  <view class="weui-toast">
+    <i class="weui-loading weui-icon_toast"></i>
+    <view class="weui-toast__content">加载中</view>
+  </view>
+</view>
+<view class="fadeIn" wx:if="{{noId}}">
+  <view class="weui-mask"></view>
+  <view class="weui-dialog">
+    <view class="weui-dialog__bd">此页面仅供其他位置跳转打开，即将返回总览界面</view>
+    <view class="weui-dialog__ft">
+        <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="closeit">知道了</a>
+    </view>
+  </view>
+</view>
+<view class="fadeIn" wx:if="{{warn}}">
+  <view class="weui-mask"></view>
+  <view class="weui-dialog">
+    <view class="weui-dialog__bd">{{warntext}}</view>
+    <view class="weui-dialog__ft">
+        <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="close">知道了</a>
+    </view>
+  </view>
+</view>
+<view class="page__bd">
+  <view class="weui-article">
+    <view class="weui-article__h1">{{father}}</view>
+    <view class="weui-article__section">
+      <view class="weui-article__h2">ID: {{oid}}</view>
+      <view class="weui-article__h2">状态: {{usable}}</view>
+      <view class="weui-article__h2">位置: {{where}}</view>
+      <view class="weui-article__h2">备注: </view>
+      <view class="weui-article__p">
+        {{remark}}
+      </view>
+    </view>
+  </view>
+</view>
+<view class="weui-form__opr-area" wx:if="{{un!=4}}">
+  <text>\n\n\n</text>
+  <button class="weui-btn weui-btn_primary" bindtap="cl">操作</button>
+</view>

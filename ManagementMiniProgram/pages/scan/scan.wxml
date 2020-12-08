@@ -1,0 +1,21 @@
+<!--pages/scan/scan.wxml-->
+<view class="weui-form__text-area">
+  <text>\n</text>
+  <h2 class="weui-form__title">正在唤起扫一扫</h2>
+  <text>\n</text>
+  <view class="weui-form__desc">若没有成功调起或识别请尝试点击按钮重试</view>
+</view>
+<view class="weui-form__opr-area">
+  <text>\n\n\n\n\n</text>
+  <button class="weui-btn weui-btn_primary" bindtap="clink">扫码</button>
+</view>
+<view class="fadeIn" wx:if="{{e}}">
+  <view class="weui-mask"></view>
+  <view class="weui-dialog">
+      <view class="weui-dialog__bd"><text>扫码时出现错误，\n错误信息：{{text}}</text></view>
+      <view class="weui-dialog__ft">
+          <a class="weui-dialog__btn weui-dialog__btn_default" bindtap="close">关闭</a>
+          <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="retry">重试</a>
+      </view>
+  </view>
+</view>

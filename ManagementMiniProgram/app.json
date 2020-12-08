@@ -1,0 +1,55 @@
+{
+  "pages":[
+    "pages/list/list",
+    "pages/user/user",
+    "pages/logs/logs",
+    "pages/register/register",
+    "pages/listObj/listObj",
+    "pages/object/object",
+    "pages/operation/operation",
+    "pages/scan/scan",
+    "pages/logsInfo/info",
+    "pages/log/log"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "长空御风物资管理",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar":{
+    "list": [
+      {
+        "pagePath": "pages/list/list",
+        "iconPath": "images/icon_threeline.png",
+        "selectedIconPath": "images/icon_threeline_fill.png",
+        "text": "总览"
+      },
+      {
+        "pagePath": "pages/object/object",
+        "iconPath": "images/icon_affiliations_li.png",
+        "selectedIconPath": "images/icon_affiliations_li_fill.png",
+        "text": "对象"
+      },
+      {
+        "pagePath": "pages/scan/scan",
+        "iconPath": "images/icon_scan.png",
+        "selectedIconPath": "images/icon_scan_fill.png",
+        "text": "扫码"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "images/icon_principal.png",
+        "selectedIconPath": "images/icon_principal_fill.png",
+        "text": "我"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "为使签到系统进行定位,请允许获取您的位置权限"
+    }
+  }
+}

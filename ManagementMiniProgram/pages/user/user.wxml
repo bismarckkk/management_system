@@ -1,0 +1,63 @@
+<!--pages/user/user.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击登陆 </button>
+    <block wx:else>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+</view>
+<view class="weui-cells weui-cells_after-title">
+  <view wx:if="{{re}}">
+    <view bindtap="clink" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">注册</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+  </view>
+  <view wx:else>
+    <view bindtap="punch" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">签到</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+    <view bindtap="punchQuit" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">签退</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+    <view bindtap="leave" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">请假</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+  </view>
+  <view bindtap="log" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">申请记录</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+</view>
+<view class="fadeIn" wx:if="{{e}}">
+  <view class="weui-mask"></view>
+  <view class="weui-dialog">
+      <view class="weui-dialog__bd"><text>{{info}}</text></view>
+      <view class="weui-dialog__ft">
+          <a class="weui-dialog__btn weui-dialog__btn_default" bindtap="close">关闭</a>
+          <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="punch">重试</a>
+      </view>
+  </view>
+</view>
+<view class="fadeIn {{hideLoading ? 'fadeOut' : ''}}" wx:if="{{loading}}">
+  <view class="weui-mask_transparent"></view>
+  <view class="weui-toast">
+    <i class="weui-loading weui-icon_toast"></i>
+    <view class="weui-toast__content">加载中</view>
+  </view>
+</view>
+<view class="fadeIn" wx:if="{{iosDialog2}}">
+<view class="weui-mask"></view>
+<view class="weui-dialog">
+  <view class="weui-dialog__bd"><text>{{tips}}</text></view>
+  <view class="weui-dialog__ft">
+      <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="close">知道了</a>
+  </view>
+</view>
+</view>
+

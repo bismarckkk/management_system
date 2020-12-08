@@ -1,0 +1,94 @@
+<!--pages/operation/operation.wxml-->
+<view class="page" data-weui-theme="{{theme}}">
+<view class="weui-form">
+  <view class="weui-form__text-area">
+			<h2 class="weui-form__title">操作</h2>
+	</view>
+  <form bindsubmit="formSubmit">
+    <view class="weui-form__control-area">
+        <view class="weui-cells__group weui-cells__group_form">
+          <view class="weui-cells weui-cells_form">
+            <view class="weui-cell weui-cell_active" wx:if="{{idopen}}">
+              <view class="weui-cell__hd"><label class="weui-label">ID</label></view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="10000" placeholder-class="weui-input__placeholder" value="{{id}}" name="oid"/>
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_active">
+              <view class="weui-cell__hd"><label class="weui-label">操作类型</label></view>
+              <view class="weui-cell__bd">
+                <picker bindchange="bindPicker2Change" range="{{opKind}}" bindchange="pchange">
+                  <view class="weui-select" style="width: 4em">{{opKind[index]}}</view>
+                </picker>
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_active" wx:if="{{open[0]}}">
+              <view class="weui-cell__hd">
+                <label class="weui-label">入库位置</label>
+              </view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="物品入库位置" placeholder-class="weui-input__placeholder" name="where" />
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_active" wx:if="{{open[1]}}">
+              <view class="weui-cell__hd">
+                <label class="weui-label">添加物资名</label>
+              </view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="要添加的物资名称" placeholder-class="weui-input__placeholder" name="name" />
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_active" wx:if="{{open[2]}}">
+              <view class="weui-cell__hd">
+                <label class="weui-label">添加对象数</label>
+              </view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="要添加的对象数目" placeholder-class="weui-input__placeholder" name="num" />
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_active" wx:if="{{open[3]}}">
+              <view class="weui-cell__hd">
+                <label class="weui-label">项目名称</label>
+              </view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="使用对象项目的名称" placeholder-class="weui-input__placeholder" name="pwhere" />
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_active">
+              <view class="weui-cell__hd">
+                <label class="weui-label">备注</label>
+              </view>
+            </view>
+            <view class="weui-cells weui-cells_form">
+              <view class="weui-cell ">
+                <view class="weui-cell__bd">
+                  <textarea class="weui-textarea" placeholder="填写备注" rows="3" name="do"></textarea>
+                  <view class="weui-textarea-counter"><text>0</text>/200</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="weui-form__opr-area">
+        <button class="weui-btn weui-btn_primary" form-type="submit">提交</button>
+      </view>
+    </form>
+  </view>
+</view>
+<view class="fadeIn {{hideLoading ? 'fadeOut' : ''}}" wx:if="{{loading}}">
+  <view class="weui-mask_transparent"></view>
+  <view class="weui-toast">
+    <i class="weui-loading weui-icon_toast"></i>
+    <view class="weui-toast__content">正在提交</view>
+  </view>
+</view>
+<view class="fadeIn" wx:if="{{iosDialog2}}">
+<view class="weui-mask"></view>
+<view class="weui-dialog">
+  <view class="weui-dialog__bd"><text>{{tips}}</text></view>
+  <view class="weui-dialog__ft">
+      <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="close">知道了</a>
+  </view>
+</view>
+</view>

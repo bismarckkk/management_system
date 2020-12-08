@@ -1,0 +1,58 @@
+<!--pages/register/register.wxml-->
+<view class="page" data-weui-theme="{{theme}}">
+<view class="weui-form">
+  <view class="weui-form__text-area">
+			<h2 class="weui-form__title">注册</h2>
+      <view class="weui-form__desc">注册后将提交审核，审核通过后方可使用。</view>
+	</view>
+  <form bindsubmit="formSubmit">
+    <view class="weui-form__control-area">
+        <view class="weui-cells__group weui-cells__group_form">
+          <view class="weui-cells weui-cells_form">
+            <view class="weui-cell weui-cell_active">
+              <view class="weui-cell__hd"><label class="weui-label">学号</label></view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="填写本人学号" placeholder-class="weui-input__placeholder" name="st_n"/>
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_active">
+              <view class="weui-cell__hd">							
+                <label class="weui-label">姓名</label>
+              </view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="填写本人姓名" placeholder-class="weui-input__placeholder" name="re_n" />
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="weui-form__opr-area">
+        <button class="weui-btn weui-btn_primary" form-type="submit">确定</button>
+      </view>
+    </form>
+  </view>
+</view>
+
+<view class="fadeIn {{hideToast ? 'fadeOut' : ''}}" wx:if="{{toast}}">
+  <view class="weui-mask_transparent"></view>
+  <view class="weui-toast">
+    <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+    <view class="weui-toast__content">提交成功</view>
+  </view>
+</view>
+<view class="fadeIn {{hideLoading ? 'fadeOut' : ''}}" wx:if="{{loading}}">
+  <view class="weui-mask_transparent"></view>
+		<view class="weui-toast">
+			<i class="weui-loading weui-icon_toast"></i>
+    <view class="weui-toast__content">正在提交</view>
+  </view>
+</view>
+<view class="fadeIn" wx:if="{{iosDialog2}}">
+  <view class="weui-mask"></view>
+  <view class="weui-dialog">
+    <view class="weui-dialog__bd">{{tips}}</view>
+    <view class="weui-dialog__ft">
+        <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="close">知道了</a>
+    </view>
+  </view>
+</view>

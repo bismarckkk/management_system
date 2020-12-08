@@ -1,0 +1,153 @@
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+    <title>
+        搜索
+        &#8211; {{ web_title }}
+    </title>
+    <meta name='robots' content='noindex,nofollow' />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <link rel='dns-prefetch' href='//cdn.jsdelivr.net' />
+    <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+    <link rel='stylesheet' id='dashicons-css'  href='static/wp-includes/css/dashicons.min.css?ver=5.3.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='wp-block-library-css'  href='static/wp-includes/css/dist/block-library/style.min.css?ver=5.3.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='wp-block-library-theme-css'  href='static/wp-includes/css/dist/block-library/theme.min.css?ver=5.3.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='Emojify.js-css'  href='https://cdn.jsdelivr.net/wp/wp-editormd/tags/10.0.8/assets/Emojify.js/css/basic/emojify.min.css?ver=10.0.8' type='text/css' media='all' />
+    <link rel='stylesheet' id='prism-theme-style-css'  href='https://cdn.jsdelivr.net/wp/wp-editormd/tags/10.0.8/assets/Prism.js/themes/prism-coy.css?ver=1.15.0' type='text/css' media='all' />
+    <link rel='stylesheet' id='prism-plugin-toolbar-css'  href='https://cdn.jsdelivr.net/wp/wp-editormd/tags/10.0.8/assets/Prism.js/plugins/toolbar/prism-toolbar.css?ver=1.15.0' type='text/css' media='all' />
+    <link rel='stylesheet' id='prism-plugin-line-numbers-css'  href='https://cdn.jsdelivr.net/wp/wp-editormd/tags/10.0.8/assets/Prism.js/plugins/line-numbers/prism-line-numbers.css?ver=1.15.0' type='text/css' media='all' />
+    <link rel='stylesheet' id='blog-kit-fonts-css'  href='//fonts.googleapis.com/css?family=Roboto%3A400%2C400i%2C500%2C500i%2C700%2C700i&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+    <link rel='stylesheet' id='jquery-meanmenu-css'  href='static/wp-content/themes/blog-kit/assets/meanmenu/meanmenu.css?ver=5.3.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='font-awesome-css'  href='static/wp-content/themes/blog-kit/assets/font-awesome/css/font-awesome.min.css?ver=4.7.0' type='text/css' media='all' />
+    <link rel='stylesheet' id='blog-kit-style-css'  href='static/wp-content/themes/blog-kit/style.css?ver=5.3.3' type='text/css' media='all' />
+    <link href="https://cdn.bootcdn.net/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="static/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" type="image/x-icon" href="static/favicon.ico" />
+    <meta name="msapplication-TileImage" content="static/logo.png" />
+    <script type='text/javascript' src='https://libs.baidu.com/jquery/1.10.2/jquery.min.js'></script>
+    <script type='text/javascript' src="https://libs.baidu.com/jqueryui/1.10.2/jquery-ui.min.js"></script>
+    <script>
+  jQuery(function() {
+    var availableTags = {{ key_words|safe }}
+    jQuery( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  });
+  </script>
+    <script src="static/custom/scanCode.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div id="page" class="site">
+        <header id="masthead" class="site-header">
+            <div class="bottom-header">
+                <div class="container">
+                    <div class="inner-header-wrap">
+                        <div class="site-branding">
+                            <p class="site-title"><a href="{{ website }}/" rel="home">{{ web_title }}</a></p>
+                            <p class="site-description">{{ web_subtitle }}</p>
+                        </div>
+                        <div class="random" width="600">
+                            <p id="tbox" align="right"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+    <article>
+        <main id="main" class="site-main" role="main">
+            <div id="primary" class="content-area">
+                <label for="tags">搜索:  </label>
+                <input id="tags"><br><br>
+                <button onclick="window.location.href = '/list?k=s&t=' + document.getElementById('tags').value">搜索</button>
+            </div>
+            <aside id="secondary" class="widget-area">
+                <div class="side-bar">
+                    <section id="eswitch">
+                        <div id="espc" display="block">
+                            <h2 class="widget-title">
+                                分类导航<br>
+                            </h2>
+                            <input type="button" name="whole" id ="go_whole" value="物资总览" onclick="window.location.href = '/whole';"/><br><br>
+                            <input type="button" name="search" id ="go_search" value="搜索物资" onclick="window.location.href = '/search';"/><br><br>
+                            <div style="display: none;"><input type="file" accept="image/*;capture=camera" id="filein"></div>
+                            <button id="btnIdents" onclick="upload()">识别条码</button><br>
+                        </div>
+                    </section>
+                </div>
+            </aside>
+        </main>
+    </article>
+</body>
+
+<footer id="colophon" class="bottom-info" role="contentinfo">
+    <div class="container">
+        <div class="copyrights-info">
+            <div class="copyright">
+                Copyright © All rights reserved.
+            </div>
+            <div class="site-info">
+                powered by 波斯猫
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript">
+/*富强民主文明和谐*/
+var a_idx = 0;
+jQuery(document).ready(function($) {
+    $("body").click(function(e) {
+        var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善");
+        var $i = $("<span/>").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;
+        var x = e.pageX,
+        y = e.pageY;
+        $i.css({
+            "z-index": 9999,
+            "top": y - 15,
+            "left": x - 20,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": "#66ccff"
+        });
+        $("body").append($i);
+        $i.animate({
+        "top": y - 180,
+        "opacity": 0
+    },
+    1500,
+    function() {
+        $i.remove();
+    });
+});
+});
+</script>
+
+<script type="text/javascript">
+	jQuery.getJSON('https://v1.hitokoto.cn/', {"c":"a"}, function(result){
+        console.info("type = " + result.type);
+		var tpp = result.hitokoto + '<br>——' + result.from;
+		document.getElementById('tbox').innerHTML = tpp;
+  	});
+	var t2 = window.setInterval(function() {
+		jQuery("#tbox").fadeOut("1000");
+		var t1 = window.setTimeout(function() {
+			jQuery.getJSON('https://v1.hitokoto.cn/', {"c":"a"}, function(result){
+                console.info("type = " + result.type);
+				var tpp = result.hitokoto + '<br>——' + result.from;
+				document.getElementById('tbox').innerHTML = tpp;
+			});
+			jQuery("#tbox").delay("60").fadeIn("1000");
+		},900);
+	},20000);
+
+	document.querySelector('#filein').addEventListener('change', function(input) {
+        if (input.target.files && input.target.files.length) {
+            decode(input.target.files[0]);
+        }
+    });
+</script>
+</html>

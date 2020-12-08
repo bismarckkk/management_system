@@ -1,0 +1,19 @@
+<!--pages/log/log.wxml-->
+<view class="page__bd">
+  <view class="weui-article">
+    <view class="weui-article__h1">申请详情</view>
+    <view class="weui-article__section">
+      <view class="weui-article__h2">ID: {{oid}}</view>
+      <view class="weui-article__h2">时间: {{time}}</view>
+      <view class="weui-article__h2">对象: {{object}}</view>
+      <view class="weui-article__h2">对象名: {{name}}</view>
+      <view class="weui-article__h2">操作: {{operation}}</view>
+      <view class="weui-article__h2">状态: {{verify}}</view>
+      <view class="weui-article__h2" wx:if="{{wis}}">位置: {{wis}}</view>
+      <view class="weui-article__h2">备注: </view>
+      <view class="weui-article__p">
+        {{do}}
+      </view>
+    </view>
+  </view>
+</view>

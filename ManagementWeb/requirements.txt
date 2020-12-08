@@ -1,0 +1,8 @@
+requests
+ujson
+Flask
+Pillow
+PyMySQL
+apscheduler
+pylibdmtx
+pyzbar

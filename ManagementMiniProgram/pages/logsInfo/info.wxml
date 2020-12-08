@@ -1,0 +1,32 @@
+<!--pages/logsInfo/info.wxml-->
+<view class="page" data-weui-theme="{{theme}}">
+	<view class="page__hd" style="display: flex; ">
+		<view class="weui-form__title" style="width:50%;display=inline-block;"><text decode="{{true}}">&nbsp;&nbsp;&nbsp;申请记录</text></view>
+	</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view wx:for="{{mlist}}" wx:for-item="it" wx:for-index="i">
+      <navigator url="/pages/log/log?id={{i}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">{{it.operation}} {{it.object}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">{{it.verify}}</view>
+      </navigator>
+    </view>
+  </view>
+</view>
+<text>本界面最多只显示25条历史申请，查看更多请私聊管理员</text>
+<view class="fadeIn" wx:if="{{e}}">
+  <view class="weui-mask"></view>
+  <view class="weui-dialog">
+      <view class="weui-dialog__bd"><text>读取列表时出现错误，是否重试</text></view>
+      <view class="weui-dialog__ft">
+          <a class="weui-dialog__btn weui-dialog__btn_default" bindtap="close">关闭</a>
+          <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="retry">重试</a>
+      </view>
+  </view>
+</view>
+<view class="fadeIn {{hideLoading ? 'fadeOut' : ''}}" wx:if="{{loading}}">
+  <view class="weui-mask_transparent"></view>
+  <view class="weui-toast">
+    <i class="weui-loading weui-icon_toast"></i>
+    <view class="weui-toast__content">加载中</view>
+  </view>
+</view>

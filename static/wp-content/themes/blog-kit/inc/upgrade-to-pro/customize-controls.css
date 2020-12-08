@@ -1,0 +1,17 @@
+#customize-controls .control-section-upsell .accordion-section-title:hover,
+#customize-controls .control-section-upsell .accordion-section-title:focus {
+	background-color: #fff;
+}
+
+.control-section-upsell .accordion-section-title .button {
+	margin-top:  -4px;
+	font-weight: 700;
+	margin-left: 8px;
+	border-color: #fa6161;
+	background-color: #fa6161;
+	color: #fff;
+}
+
+.control-section-upsell .accordion-section-title .button:hover {
+	background-color: #ec2525;
+}
