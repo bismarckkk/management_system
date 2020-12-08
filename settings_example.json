@@ -1,0 +1,57 @@
+{
+  "httpd": {
+    "http_port": 80,
+    "https_port": 443
+  },
+  "webhook": {
+    "enable": true,
+    "name2user": {
+      "这里填git或者svn用户名": "这里填真实姓名",
+      "这里填git或者svn用户名2": "这里填真实姓名2"
+    },
+    "github_secret": "github webhook设置的secret",
+    "svn_secret": "svn webhook设置的secret",
+    "port": 8002,
+    "targets": [1234567, 12345678]
+  },
+  "mysql": {
+    "host": "mysql主机地址",
+    "user": "访问用户名",
+    "password": "访问密码",
+    "db": "数据库名"
+  },
+  "mirai": {
+    "url": "mirai工作地址，注意最后要带/",
+    "authkey": "mirai_http_api的authkey",
+    "qq": 12345678
+  },
+
+  "web": {
+    "enable": true,
+    "qq_oauth": {
+      "appid": "qq开放平台appid",
+      "appkey": "qq开放平台appkey"
+    },
+    "port": 8000,
+    "targets": [1234567],
+    "title": "网站标题",
+    "subtitle": "网站副标题",
+    "website": "网站网址"
+  },
+  "wx_backend": {
+    "enable": true,
+    "wx_miniprogram": {
+      "wxid": "微信小程序id",
+      "wxkey": "微信小程序key"
+    },
+    "port": 8001,
+    "targets": [1234567],
+    "punch": {
+      "punchWifiList": {
+        "签到地点A": ["附近WIFI BSSID", "附近WIFI BSSID", "附近WIFI BSSID"],
+        "签到地点B": ["附近WIFI BSSID", "附近WIFI BSSID", "附近WIFI BSSID"]
+      },
+      "targets": [1121745403, 1105356610]
+    }
+  }
+}
