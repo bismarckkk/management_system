@@ -2,7 +2,7 @@
 
 echo "欢迎使用长空御风管理系统快速开始脚本"
 echo "请确保您已经按照README的提示填写了setting_example.sh并将其重命名为setting.sh"
-echo "确认完成上述操作后按任意键继续"
+echo "确认完成上述操作后按回车键继续"
 read anykey
 
 pip3 install ujson pymysql
